@@ -6,15 +6,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-/**
- * Assignment #1
- * Program Title:       smtpClient
- * Author:              Lars Martin G. Risdal
- * Date:                September 19, 2016
- * Class:               CSCI 3550 - Communication Networks
- * Purpose:             Simple SMTP client
- */
-
 public class smtpClient {
 
     private static Socket socket;
@@ -25,14 +16,7 @@ public class smtpClient {
     private static String hostname = "";
     private static String replyMessage;
 
-    /**
-     * This method opens a socket connection to an arbitrary mail server.
-     * Will always connect to port 25.
-     * Will then open input and output streams to the socket so that we can
-     * read and write to the server.
-     *
-     * @param hostname The server that will we will connect to.
-     */
+   
     public static void open(String hostname) {
         try {
             socket = new Socket(hostname, 25);
@@ -62,12 +46,7 @@ public class smtpClient {
         System.out.println("Connection closed.");
     }
 
-    /**
-     * Method for returning a reply from the server to the client.
-     *
-     * @return The string message to be received from the server.
-     * @throws IOException
-     */
+   
     public static String readReplyFromServer() throws IOException {
         return InputStream.readLine();
     }
@@ -84,10 +63,6 @@ public class smtpClient {
      * 8. Sends message BODY.
      * 9. Sends QUIT message.
      * 10. Closes the connection.
-     *
-     * @param args The commandline parameters. Hostname and debugging option.
-     *             0 = isn't debugging, 1 = is debugging, i.e. displays status messages.
-     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
 
